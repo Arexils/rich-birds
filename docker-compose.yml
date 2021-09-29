@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  rich_birds:
+    environment:
+      - ENVIRONMENT=dev
+    restart: always
+    env_file:
+      - variables.env
+    command: python main.py
+    expose:
+      - 8003
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/rich_birds
